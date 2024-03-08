@@ -93,15 +93,43 @@ function disptxt (txt: any[]) {
     }
 }
 input.onButtonPressed(Button.A, function () {
-    disptxt(i23)
+    mode += 1
+    if (mode > 4) {
+        mode = 0
+    }
+    basic.showString("" + (modes[mode]))
 })
 input.onButtonPressed(Button.B, function () {
-    disptxt(j316)
+    if (mode == 0) {
+        disptxt(i23)
+    }
+    if (mode == 1) {
+        disptxt(j316)
+    }
+    if (mode == 2) {
+        basic.showString("Make Language")
+    }
+    if (mode == 3) {
+        basic.showString("Translate Isaiah")
+    }
+    if (mode == 4) {
+        basic.showString("Translate John")
+    }
 })
 let vocab: string[] = []
 let j316: string[] = []
 let i23: string[] = []
+let mode = 0
+let modes: string[] = []
 verses()
+modes = [
+"SI",
+"SJ",
+"MX",
+"TI",
+"TJ"
+]
+mode = 4
 basic.forever(function () {
 	
 })
