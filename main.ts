@@ -99,6 +99,43 @@ input.onButtonPressed(Button.A, function () {
     }
     basic.showString("" + (modes[mode]))
 })
+function mkRules () {
+    for (let index = 0; index <= 4; index++) {
+        r = ""
+        for (let r1 = 0; r1 <= randint(2, 6); r1++) {
+            if (3 < randint(0, 9)) {
+                r = "" + r + "V"
+            } else {
+                r = "" + r + "C"
+            }
+        }
+        rules[index] = r
+    }
+}
+function mkWord () {
+    r = rules[randint(0, 4)]
+    word = ""
+    for (let index = 0; index <= r.length - 1; index++) {
+        if ("C" == r.substr(index, 110)) {
+            word = "" + word + consonants.substr(randint(0 - consonants.length, 10), 1)
+        } else {
+            word = "" + word + vowels.substr(randint(0 - vowels.length, 10), 1)
+        }
+    }
+    return word
+}
+function makeBASE () {
+    vowels = "aeiouy"
+    consonants = "bcdfghjklmnpqrstvwxyz"
+    rules = [
+    "",
+    "",
+    "",
+    "",
+    ""
+    ]
+    mkRules()
+}
 input.onButtonPressed(Button.B, function () {
     if (mode == 0) {
         disptxt(i23)
@@ -116,6 +153,11 @@ input.onButtonPressed(Button.B, function () {
         basic.showString("Translate John")
     }
 })
+let vowels = ""
+let consonants = ""
+let word = ""
+let rules: string[] = []
+let r = ""
 let vocab: string[] = []
 let j316: string[] = []
 let i23: string[] = []
@@ -130,6 +172,7 @@ modes = [
 "TJ"
 ]
 mode = 4
+makeBASE()
 basic.forever(function () {
 	
 })
