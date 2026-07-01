@@ -116,9 +116,13 @@ input.onButtonPressed(Button.B, function () {
         basic.showString("Translate John")
     }
 })
+function mkLang () {
+    tmax = []
+}
 let vocab: string[] = []
 let j316: string[] = []
 let i23: string[] = []
+let tmax: number[] = []
 let mode = 0
 let modes: string[] = []
 verses()
@@ -130,6 +134,4 @@ modes = [
 "TJ"
 ]
 mode = 4
-basic.forever(function () {
-	
-})
+tmax = []
