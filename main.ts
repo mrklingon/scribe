@@ -87,6 +87,9 @@ function verses () {
     "world"
     ]
 }
+function tranWrd (src: string) {
+    return tmax[vocab.indexOf(src)]
+}
 function disptxt (txt: any[]) {
     for (let value of txt) {
         basic.showString("" + value)
@@ -127,6 +130,17 @@ input.onButtonPressed(Button.B, function () {
     }
     if (mode == 2) {
         basic.showString("Make Language")
+        mkLang()
+    }
+    if (mode == 3) {
+        for (let value of i23) {
+            basic.showString("" + (tranWrd(value)))
+        }
+    }
+    if (mode == 4) {
+        for (let value of j316) {
+            basic.showString("" + (tranWrd(value)))
+        }
     }
 })
 function randLtr (rl: string) {
@@ -135,6 +149,9 @@ function randLtr (rl: string) {
 }
 function mkLang () {
     tmax = []
+    for (let value of vocab) {
+        tmax.push(mkWord())
+    }
 }
 let l = 0
 let z = ""
@@ -143,10 +160,10 @@ let r = ""
 let vow = ""
 let cons = ""
 let rules: string[] = []
+let tmax: string[] = []
 let vocab: string[] = []
 let j316: string[] = []
 let i23: string[] = []
-let tmax: number[] = []
 let mode = 0
 let modes: string[] = []
 verses()
@@ -158,4 +175,4 @@ modes = [
 "TJ"
 ]
 mode = 4
-tmax = []
+mkLang()
