@@ -99,6 +99,25 @@ input.onButtonPressed(Button.A, function () {
     }
     basic.showString("" + (modes[mode]))
 })
+function mkWord () {
+    rules = ["CVC", "CV", "CVCVC"]
+    cons = "tdkp"
+    vow = "aeiouy"
+    r = rules._pickRandom()
+    wrd = ""
+    for (let index = 0; index <= r.length - 1; index++) {
+        z = r.substr(index, 1)
+        if (z == "C") {
+            wrd = "" + wrd + randLtr(cons)
+        } else {
+            wrd = "" + wrd + randLtr(vow)
+        }
+    }
+    return wrd
+}
+input.onButtonPressed(Button.AB, function () {
+    basic.showString("" + (mkWord()))
+})
 input.onButtonPressed(Button.B, function () {
     if (mode == 0) {
         disptxt(i23)
@@ -109,16 +128,21 @@ input.onButtonPressed(Button.B, function () {
     if (mode == 2) {
         basic.showString("Make Language")
     }
-    if (mode == 3) {
-        basic.showString("Translate Isaiah")
-    }
-    if (mode == 4) {
-        basic.showString("Translate John")
-    }
 })
+function randLtr (rl: string) {
+    l = rl.length
+    return rl.substr(randint(0, l - 1), 1)
+}
 function mkLang () {
     tmax = []
 }
+let l = 0
+let z = ""
+let wrd = ""
+let r = ""
+let vow = ""
+let cons = ""
+let rules: string[] = []
 let vocab: string[] = []
 let j316: string[] = []
 let i23: string[] = []
