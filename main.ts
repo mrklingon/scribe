@@ -108,13 +108,14 @@ function mkWord () {
     vow = "aeiouy"
     r = rules._pickRandom()
     wrd = ""
-    for (let index = 0; index <= r.length - 1; index++) {
+    while (index <= r.length - 1) {
         z = r.substr(index, 1)
         if (z == "C") {
             wrd = "" + wrd + randLtr(cons)
         } else {
             wrd = "" + wrd + randLtr(vow)
         }
+        index += 1
     }
     return wrd
 }
@@ -133,13 +134,13 @@ input.onButtonPressed(Button.B, function () {
         mkLang()
     }
     if (mode == 3) {
-        for (let value of i23) {
-            basic.showString("" + (tranWrd(value)))
+        for (let value2 of i23) {
+            basic.showString("" + (tranWrd(value2)))
         }
     }
     if (mode == 4) {
-        for (let value of j316) {
-            basic.showString("" + (tranWrd(value)))
+        for (let value3 of j316) {
+            basic.showString("" + (tranWrd(value3)))
         }
     }
 })
@@ -149,12 +150,13 @@ function randLtr (rl: string) {
 }
 function mkLang () {
     tmax = []
-    for (let value of vocab) {
+    for (let value4 of vocab) {
         tmax.push(mkWord())
     }
 }
 let l = 0
 let z = ""
+let index = 0
 let wrd = ""
 let r = ""
 let vow = ""
@@ -166,6 +168,7 @@ let j316: string[] = []
 let i23: string[] = []
 let mode = 0
 let modes: string[] = []
+basic.showString("Scribe")
 verses()
 modes = [
 "SI",
